@@ -1,0 +1,321 @@
+{
+    "source_file": "DBMS UNIT 3.pdf",
+    "total_pages": 63,
+    "pages": [
+        {
+            "page_number": 1,
+            "content": "Relational Model Unit 3",
+            "char_count": 23
+        },
+        {
+            "page_number": 2,
+            "content": "The Relational Model",
+            "char_count": 20
+        },
+        {
+            "page_number": 3,
+            "content": "Brief History of the Relational Model The relational model was first proposed by E.\nF.\nCodd in his seminal paper \u201cA relational model of data for large shared data banks\u201d (Codd, 1970).\nThis paper is now generally accepted as a landmark in database systems.\nThe relational model\u2019s objectives were specified as follows: \u2022 To allow a high degree of data independence.\nApplication programs must not be affected by modifications to the internal data representation, particularly by changes to file organizations, record orderings, or access paths. \u2022 To provide substantial grounds for dealing with data semantics, consistency, and redundancy problems.\nIn particular, Codd\u2019s paper introduced the concept of normalized relations, that is, relations that have no repeating groups. \u2022 To enable the expansion of set-oriented data manipulation languages.",
+            "char_count": 842
+        },
+        {
+            "page_number": 4,
+            "content": "Relation, Attribute and Domain Relation A relation is a table with columns and rows.\nHowever, this perception applies only to the logical structure of the database.\nAttribute An attribute is a named column of a relation.\nAttributes can appear in any order and the relation will still be the same relation.\nDomain A domain is the set of allowable values for one or more attributes.\nEvery attribute in a relation is defined on a domain.\nDomains may be distinct for each attribute, or two or more attributes may be defined on the same domain.",
+            "char_count": 539
+        },
+        {
+            "page_number": 5,
+            "content": "Properties of Relations A relation has the following properties: \u2022 the relation has a name that is distinct from all other relation names in the relational schema; \u2022 each cell of the relation contains exactly one atomic (single) value; \u2022 each attribute has a distinct name; \u2022 the values of an attribute are all from the same domain; \u2022 each tuple is distinct; there are no duplicate tuples; \u2022 the order of attributes has no significance; \u2022 the order of tuples has no significance, theoretically. (However, in practice, the order may affect the efficiency of accessing tuples.)",
+            "char_count": 575
+        },
+        {
+            "page_number": 6,
+            "content": "Domain Constraints \u25cf A domain of possible values must be associated with every attribute (for example, integer types, character types, date/time types). \u25cf Declaring an attribute to be of a particular domain acts as a constraint on the values that it can take. \u25cf Domain constraints are the most elementary form of integrity constraint.\nThey are tested easily by the system whenever a new data item is entered into the database.",
+            "char_count": 426
+        },
+        {
+            "page_number": 7,
+            "content": "Integrity Constraints A data model has two other parts: a manipulative part, defining the types of operation that are allowed on the data, and a set of integrity constraints, which ensure that the data is accurate.\nAs we know every attribute has an associated domain, there are constraints (called domain constraints) that form restrictions on the set of values allowed for the attributes of relations.\nIn addition, there are two important integrity rules, which are constraints or restrictions that apply to all instances of the database.\nThe two principal rules for the relational model are known as entity integrity and referential integrity.\nEntity integrity: In a base relation, no attribute of a primary key can be null.",
+            "char_count": 726
+        },
+        {
+            "page_number": 8,
+            "content": "Integrity Constraints Integrity constraints ensure that changes made to the database by authorized users do not result in a loss of data consistency.\nThus, integrity constraints guard against accidental damage to the database.\nExamples of integrity constraints are: \u2022 An instructor name cannot be null. \u2022 No two instructors can have the same instructor ID. \u2022 Every department name in the course relation must have a matching department name in the department relation. \u2022 The budget of a department must be greater than $0.00.",
+            "char_count": 525
+        },
+        {
+            "page_number": 9,
+            "content": "Integrity Constraints In general, an integrity constraint can be an arbitrary predicate pertaining to the database.\nHowever, arbitrary predicates may be costly to test.\nThus, most database systems allow one to specify integrity constraints that can be tested with minimal overhead.\nIntegrity constraints are usually identified as part of the database schema design process, and declared as part of the create table command used to create relations.\nHowever, integrity constraints can also be added to an existing relation by using the command alter table table-name add constraint, where constraint can be any constraint on the relation.\nWhen such a command is executed, the system first ensures that the relation satisfies the specified constraint.\nIf it does, the constraint is added to the relation; if not, the command is rejected.",
+            "char_count": 835
+        },
+        {
+            "page_number": 10,
+            "content": "Referential Integrity When, we wish to ensure that a value that appears in one relation for a given set of attributes also appears for a certain set of attributes in another relation.\nThis condition is called referential integrity.\nFor example, The department listed for each course must be one that actually exists.\nMore precisely, the dept_name value in a course record must appear in the dept_name attribute of some record of the department relation.\nDatabase modifications can cause violations of referential integrity.When a referential-integrity constraint is violated, the normal procedure is to reject the action that caused the violation.",
+            "char_count": 647
+        },
+        {
+            "page_number": 11,
+            "content": "Referential Integrity More generally, let r1 and r2 be relations whose set of attributes are R1 and R2, respectively, with primary keys K1 and K2.\nWe say that, a subset \ud835\udfaa of R2 is a foreign key referencing K1 in relation r1 if it is required that, for every tuple t2 in r2, there must be a tuple t1 in r1 such that t1.K1 = t2.\ud835\udfaa Requirements of this form are called referential-integrity constraints, or subset dependencies.",
+            "char_count": 423
+        },
+        {
+            "page_number": 12,
+            "content": "Referential Integrity Note that, for a referential-integrity constraint to make sense, \ud835\udfaa and K1 must be compatible sets of attributes; that is,either must be equal to K1, or they must contain the same number of attributes, and the types of corresponding attributes must be compatible (we assume here that and K1 are ordered).\nIn general, a referential integrity constraint does not require K1 to be a primary key of r1; as a result,more than one tuple in r1 can have the same value for attributes K1.",
+            "char_count": 500
+        },
+        {
+            "page_number": 13,
+            "content": "Referential Integrity By default, in SQL a foreign key references the primary-key attributes of the referenced table.\nSQL also supports a version of the references clause where a list of attributes of the referenced relation can be specified explicitly.\nThe specified list of attributes must, however, be declared as a candidate key of the referenced relation, using either a primary key constraint, or a unique constraint.\nWe can use the following short form as part of an attribute definition to declare that the attribute forms a foreign key: dept_name varchar(20) references department When a referential-integrity constraint is violated, the normal procedure is to reject the action that caused the violation (that is, the transaction performing the update action is rolled back).",
+            "char_count": 785
+        },
+        {
+            "page_number": 14,
+            "content": "Referential Integrity However, a foreign key clause can specify that if a delete or update action on the referenced relation violates the constraint, then, instead of rejecting the action, the system must take steps to change the tuple in the referencing relation to restore the constraint.\nConsider this definition of an integrity constraint on the relation course: create table course ( . . . foreign key (dept_name) references department on delete cascade on update cascade, . . . ); Because of the clause on delete cascade associated with the foreign-key declaration, if a delete of a tuple in department results in this referential-integrity constraint being violated, the system does not reject the delete.\nInstead, the delete \u201ccascades\u201d to the course relation, deleting the tuple that refers to the department that was deleted.",
+            "char_count": 834
+        },
+        {
+            "page_number": 15,
+            "content": "Referential Integrity SQL also allows the foreign key clause to specify actions other than cascade, if the constraint is violated: The referencing field (here, dept_name) can be set to null (by using set null in place of cascade), or to the default value for the domain (by using set default).\nNull values complicate the semantics of referential-integrity constraints in SQL.\nAttributes of foreign keys are allowed to be null, provided that they have not otherwise been declared to be not null.\nIf all the columns of a foreign key are nonnull in a given tuple, the usual definition of foreign-key constraints is used for that tuple.\nIf any of the foreign-key columns is null, the tuple is defined automatically to satisfy the constraint.",
+            "char_count": 737
+        },
+        {
+            "page_number": 16,
+            "content": "Relational Integrity Constraints",
+            "char_count": 32
+        },
+        {
+            "page_number": 17,
+            "content": "Database Design",
+            "char_count": 15
+        },
+        {
+            "page_number": 18,
+            "content": "Relational Model \u25cf The goal of relational database design is to generate a set of relation schemas that allows us to store information without unnecessary redundancy, yet also allows us to retrieve information easily.\nThis is accomplished by designing schemas that are in an appropriate normal form. \u25cf To determine whether a relation schema is in one of the desirable normal forms, we need information about the real-world enterprise that we are modeling with the database. \u25cf Some of this information exists in a well-designed E-R diagram, but additional information about the enterprise may be needed as well.",
+            "char_count": 610
+        },
+        {
+            "page_number": 19,
+            "content": "Relational Model Here we discuss a formal approach to relational database design based on the notion of functional dependencies.\nWe then define normal forms in terms of functional dependencies and other types of data dependencies.",
+            "char_count": 230
+        },
+        {
+            "page_number": 20,
+            "content": "Features of Good Relational Designs The goodness (or badness) of the resulting set of schemas depends on how good the E-R design was in the first place.",
+            "char_count": 152
+        },
+        {
+            "page_number": 21,
+            "content": "Design Alternative: Larger Schemas Let us explore features of this relational database design as well as some alternatives.\nSuppose that instead of having the schemas instructor and department, we have the schema: inst_dept (ID, name, salary, dept_name, building, budget) This represents the result of a natural join on the relations corresponding to instructor and department.\nThis seems like a good idea because some queries can be expressed using fewer joins, until we think carefully about the facts about the university that led to our E-R design.",
+            "char_count": 552
+        },
+        {
+            "page_number": 22,
+            "content": "Design Alternative: Larger Schemas Let us consider the instance of the inst_dept relation shown in Figure",
+            "char_count": 105
+        },
+        {
+            "page_number": 23,
+            "content": "Design Alternative: Larger Schemas In the above table, notice that we have to repeat the department information (\u201cbuilding\u201d and \u201cbudget\u201d) once for each instructor in the department.\nFor example, the information about the Comp.\nSci. department (Taylor, 100000) is included in the tuples of instructors Katz, Srinivasan, and Brandt.\nIt is important that all these tuples agree as to the budget amount since otherwise our database would be inconsistent.\nIn our original design using instructor and department, we stored the amount of each budget exactly once.\nThis suggests that using inst_dept is a bad idea since it stores the budget amounts redundantly and runs the risk that some user might update the budget amount in one tuple but not all, and thus create inconsistency.",
+            "char_count": 773
+        },
+        {
+            "page_number": 24,
+            "content": "Design Alternative: Larger Schemas Even if we decided to live with the redundancy problem, there is still another problem with the inst_dept schema.\nSuppose we are creating a new department in the university.\nIn the alternative design above, we cannot represent directly the information concerning a department (dept name, building, budget) unless that department has at least one instructor at the university.\nThis is because tuples in the inst_dept table require values for ID, name, and salary.\nThis means that we cannot record information about the newly created department until the first instructor is hired for the new department.\nIn the old design, the schema department can handle this, but under the revised design, we would have to create a tuple with a null value for building and budget.\nIn some cases null values are also troublesome.",
+            "char_count": 848
+        },
+        {
+            "page_number": 25,
+            "content": "Design Alternative: Smaller Schemas In the case of inst_dept,we need to allow the database designer to specify rules such as \u201ceach specific value for dept_name corresponds to atmost one budget\u201d even in cases where dept_name is not the primary key for the schema in question.\nIn other words, we need to write a rule that says \u201cif there were a schema (dept_name, budget), then dept_name is able to serve as the primary key.\u201d This rule is specified as a functional dependency dept_name\u2192budget Observations such as these and the rules (functional dependencies in particular) that result from them allow the database designer to recognize situations where a schema ought to be split, or decomposed, into two or more schemas.",
+            "char_count": 719
+        },
+        {
+            "page_number": 26,
+            "content": "Design Alternative: Smaller Schemas The database designer had to recognize situations where a schema ought to be split, or decomposed, into two or more schemas considering the rules and functional dependencies.\nFinding the right decomposition is much harder for schemas with a large number of attributes and several functional dependencies.\nConsider a less extreme case where we choose to decompose the employee schema employee (ID, name, street, city, salary) into the following two schemas: employee1 (ID, name) employee2 (name, street, city, salary) The flaw in this decomposition arises from the possibility that the enterprise has two employees with the same name.\nFor example, let us assume two employees, both named Kim, work at the university and have the following tuples in the relation on schema employee in the original design: (57766, Kim, Main, Perryridge, 75000) (98776, Kim, North, Hampton, 67000)",
+            "char_count": 913
+        },
+        {
+            "page_number": 27,
+            "content": "",
+            "char_count": 0
+        },
+        {
+            "page_number": 28,
+            "content": "Design Alternative: Smaller Schemas As we see in the figure, the two original tuples appear in the result along with two new tuples that incorrectly mix data values pertaining to the two employees named Kim.\nThus, our decomposition is unable to represent certain important facts about the university employees.\nClearly, we would like to avoid such decompositions.\nWe shall refer to such decompositions as being lossy decompositions.",
+            "char_count": 432
+        },
+        {
+            "page_number": 29,
+            "content": "Atomic Domains and First Normal Form \u25cf The E-R model allows entity sets and relationship sets to have attributes that have some degree of substructure.\nFor example, it allows multivalued attributes such as phone number. \u25cf When we create tables from E-R designs that contain the types of attributes as shown in figure, we eliminate this substructure. \u25cf For composite attributes, we let each component be an attribute in its own right. \u25cf For multivalued attributes,we create one tuple for each item in a multivalued set.",
+            "char_count": 518
+        },
+        {
+            "page_number": 30,
+            "content": "Atomic Domains and First Normal Form \u25cf In the relational model, the idea is that, attributes do not have any substructure. \u25cf A domain is atomic if elements of the domain are considered to be indivisible units. \u25cf A relation schema R is in first normal form (1NF) if the domains of all attributes of R are atomic. \u25cf For example, Integers are assumed to be atomic, so the set of integers is an atomic domain; \u25cf however, the set of all sets of integers is a nonatomic domain.",
+            "char_count": 471
+        },
+        {
+            "page_number": 31,
+            "content": "Atomic Domains and First Normal Form The important issue is not what the domain itself is, but rather how we use domain elements in our database.\nConsider an organization that assigns employees identification numbers of the following form: The first two letters specify the department and the remaining four digits are a unique number within the department for the employee.\nExamples of such numbers would be \u201cCS001\u201d and \u201cEE1127\u201d.\nSuch identification numbers can be divided into smaller units, and are therefore nonatomic.\nIf a relation schema had an attribute whose domain consists of identification numbers encoded as above, the schema would not be in first normal form.",
+            "char_count": 672
+        },
+        {
+            "page_number": 32,
+            "content": "Atomic Domains and First Normal Form \u25cf The use of course identifiers such as \u201cCS-101\u201d, where \u201cCS\u201d indicates the Computer Science department, means that the domain of course identifiers is not atomic. \u25cf However, the database application treats the domain as atomic, as long as it does not attempt to split the identifier and interpret parts of the identifier as a department abbreviation. \u25cf The course schema stores the department name as a separate attribute, and the database application can use this attribute value to find the department of a course, instead of interpreting particular characters of the course identifier. \u25cf Thus, our university schema can be considered to be in first normal form.",
+            "char_count": 701
+        },
+        {
+            "page_number": 33,
+            "content": "Atomic Domains and First Normal Form \u25cf The use of set-valued attributes can lead to designs with redundant storage of data, which in turn can result in inconsistencies. \u25cf Some types of nonatomic values can be useful but they should be used with care. \u25cf For example, Composite-valued attributes are often useful, and set-valued attributes are also useful in many cases, which is why both are supported in the E-R model.",
+            "char_count": 418
+        },
+        {
+            "page_number": 34,
+            "content": "Decomposition Using Functional Dependencies Keys and Functional Dependencies: A database models, a set of entities and relationships in the real world.\nThere are usually a variety of constraints (rules) on the data in the real world.\nFor example, some of the constraints that are expected to hold in a university database are: 1.\nStudents and instructors are uniquely identified by their ID. 2.\nEach student and instructor has only one name. 3.\nEach instructor and student is (primarily) associated with only one department. 4.\nEach department has only one value for its budget, and only one associated building.\nAn instance of a relation that satisfies all such real-world constraints is called a legal instance of the relation; a legal instance of a database is one where all the relation instances are legal instances.",
+            "char_count": 821
+        },
+        {
+            "page_number": 35,
+            "content": "Keys and Functional Dependencies Some of the most commonly used types of real-world constraints can be represented formally as keys (superkeys, candidate keys and primary keys), or as functional dependencies. we defined the notion of a superkey as a set of one or more attributes that, taken collectively, allows us to identify uniquely a tuple in the relation.\nWe restate that definition here as follows: Let r (R) be a relation schema.\nA subset K of R is a superkey of r (R) if, in any legal instance of r (R), for all pairs t1 and t2 of tuples in the instance of r if t1 \u2260 t2, then t1[K] \u2260 t2[K].\nThat is, no two tuples in any legal instance of relation r (R) may have the same value on attribute set K.",
+            "char_count": 706
+        },
+        {
+            "page_number": 36,
+            "content": "Keys and Functional Dependencies Whereas a superkey is a set of attributes that uniquely identifies an entire tuple, a functional dependency allows us to express constraints that uniquely identify the values of certain attributes.\nConsider a relation schema r (R), and let \ud835\udec2\u2286 R and \ud835\udec3\u2286 R. \u2022 Given an instance of r (R), we say that the instance satisfies the functional dependency \ud835\udec2\u2192\ud835\udec3 if for all pairs of tuples t1 and t2 in the instance such that t1[\ud835\udec2] = t2[\ud835\udec2], it is also the case that t1[\ud835\udec3] = t2[\ud835\udec3]. \u2022 We say that the functional dependency \ud835\udec2\u2192\ud835\udec3 holds on schema r (R) if, in every legal instance of r (R) it satisfies the functional dependency.\nUsing the functional-dependency notation, we say that K is a superkey of r (R) if the functional dependency K\u2192R holds on r (R).",
+            "char_count": 771
+        },
+        {
+            "page_number": 37,
+            "content": "Keys and Functional Dependencies In other words, K is a superkey if, for every legal instance of r (R), for every pair of tuples t1 and t2 from the instance, whenever t1[K] = t2[K], it is also the case that t1[R] = t2[R] (that is, t1 = t2).\nFunctional dependencies allow us to express constraints that we cannot express with superkeys. we considered the schema: inst_dept (ID, name, salary, dept_name, building, budget) in which the functional dependency dept_name \u2192 budget holds because for each department (identified by dept_name) there is a unique budget amount.\nWe denote the fact that the pair of attributes (ID, dept_name) forms a superkey for inst_dept by writing: ID, dept_name\u2192name, salary, building, budget",
+            "char_count": 717
+        },
+        {
+            "page_number": 38,
+            "content": "Keys and Functional Dependencies We shall use functional dependencies in two ways: 1.\nTo test instances of relations to see whether they satisfy a given set F of functional dependencies. 2.\nTo specify constraints on the set of legal relations.We shall thus concern ourselves with only those relation instances that satisfy a given set of functional dependencies.\nIf we wish to constrain ourselves to relations on schema r (R) that satisfy a set F of functional dependencies, we say that F holds on r (R).\nSome functional dependencies are said to be trivial (little importance) because they are satisfied by all relations.\nFor example, A \u2192 A is satisfied by all relations involving attribute A.\nReading the definition of functional dependency literally,we see that, for all tuples t1 and t2 such that t1[A] = t2[A], it is the case that t1[A] = t2[A].\nSimilarly, AB \u2192 A is satisfied by all relations involving attribute A.\nIn general, a functional dependency of the form \ud835\udec2\u2192\ud835\udec3 is trivial if \ud835\udec3\u2286\ud835\udec2 .",
+            "char_count": 992
+        },
+        {
+            "page_number": 39,
+            "content": "Keys and Functional Dependencies It is important to realize that an instance of a relation may satisfy some functional dependencies that are not required to hold on the relation\u2019s schema.\nIn the instance of the classroom relation of Figure 8.5, we see that room_number\u2192capacity is satisfied.\nHowever, in the real world, two classrooms in different buildings can have the same room number but with different room capacity.\nThus, it is possible, at some time, to have an instance of the classroom relation in which room_number\u2192capacity is not satisfied.\nSo, we would not include room number\u2192capacity in the set of functional dependencies that hold on the schema for the classroom relation.\nHowever, we would expect the functional dependency building, room_number\u2192capacity to hold on the classroom schema.",
+            "char_count": 802
+        },
+        {
+            "page_number": 40,
+            "content": "Keys and Functional Dependencies Given that a set of functional dependencies F holds on a relation r (R), it may be possible to infer that certain other functional dependencies must also hold on the relation.\nFor example, given a schema r (A, B,C), if functional dependencies A\u2192 B and B \u2192 C, hold on r , we can infer the functional dependency A\u2192 C must also hold on r.\nThis is because, given any value of A there can be only one corresponding value for B, and for that value of B, there can only be one corresponding value for C.\nWe will use the notation F+ to denote the closure of the set F, that is, the set of all functional dependencies that can be inferred given the set F.\nClearly F+ contains all of the functional dependencies in F.",
+            "char_count": 740
+        },
+        {
+            "page_number": 41,
+            "content": "Boyce\u2013Codd Normal Form \u25cf One of the more desirable normal forms that we can obtain is Boyce\u2013Codd normal form (BCNF). \u25cf It eliminates all redundancy that can be discovered based on functional dependencies, though, there may be other types of redundancy remaining.",
+            "char_count": 262
+        },
+        {
+            "page_number": 42,
+            "content": "Boyce\u2013Codd Normal Form A relation schema R is in BCNF with respect to a set F of functional dependencies if, for all functional dependencies in F+ of the form \ud835\udec2\u2192\ud835\udec3 , where \ud835\udec2 \u2286 R and \ud835\udec3 \u2286 R, at least one of the following holds: \u2022 \ud835\udec2\u2192\ud835\udec3 is a trivial functional dependency (that is, \ud835\udec3\u2286\ud835\udec2 ). \u2022 \ud835\udec2 is a superkey for schema R.\nA database design is in BCNF if each member of the set of relation schemas that constitutes the design is in BCNF.",
+            "char_count": 429
+        },
+        {
+            "page_number": 43,
+            "content": "Boyce\u2013Codd Normal Form The instructor schema is in BCNF.\nAll of the nontrivial functional dependencies that hold, such as: ID\u2192name, dept name, salary include ID on the left side of the arrow, and ID is a superkey (actually, in this case, the primary key) for instructor. (In other words, there is no nontrivial functional dependency with any combination of name, dept_name, and salary, without ID, on the side.) Thus, instructor is in BCNF.",
+            "char_count": 440
+        },
+        {
+            "page_number": 44,
+            "content": "Boyce\u2013Codd Normal Form Similarly, the department schema is in BCNF because all of the nontrivial functional dependencies that hold, such as: dept_name\u2192building, budget include dept_name on the left side of the arrow, and dept_name is a superkey (and the primary key) for department.\nThus, department is in BCNF.",
+            "char_count": 311
+        },
+        {
+            "page_number": 45,
+            "content": "Boyce\u2013Codd Normal Form To state a general rule for decomposing that are not in BCNF.\nLet R be a schema that is not in BCNF.\nThen there is at least one nontrivial functional dependency \ud835\udec2\u2192\ud835\udec3 such that \ud835\udec2 is not a superkey for R.We replace R in our design with two schemas: \u2022 ( \ud835\udec2\u222a\ud835\udec3 ) \u2022 (R \u2212 ( \ud835\udec3 \u2212\ud835\udec2 )) In the case of inst_dept above, \ud835\udec2 = dept_name, \ud835\udec3 = {building, budget}, and inst_dept is replaced by \u2022 ( \ud835\udec2\u222a\ud835\udec3 ) = (dept_name, building,budget) \u2022 (R \u2212 ( \ud835\udec3 \u2212\ud835\udec2 )) = (ID, name, dept name, salary) In this example, it turns out that \ud835\udec3 \u2212\ud835\udec2 = \ud835\udec3.\nWe need to state the rule as we did so as to deal correctly with functional dependencies that have attributes that appear on both sides of the arrow.",
+            "char_count": 680
+        },
+        {
+            "page_number": 46,
+            "content": "Boyce\u2013Codd Normal Form Note that, When we decompose a schema that is not in BCNF, it may be that one or more of the resulting schemas are not in BCNF.\nIn such cases, further decomposition is required, the eventual result of which is a set of BCNF schemas.",
+            "char_count": 255
+        },
+        {
+            "page_number": 47,
+            "content": "Difference between 1NF & 2NF 1NF \u25cf The relation should not contain any composite or multi-valued attribute. \u25cf The relation should contain only single valued attributes. \u25cf A relation schema R is in first normal form (1NF) if the domains of all attributes of R are atomic. \u25cf There should be a unique name to be specified for each attribute within the table. \u25cf Example student(rollno,sname,marks) 2NF \u25cf The relations may contain composite keys. \u25cf The relations should not contain any partial dependencies. \u25cf The relations in 2NF handles the update anomalies. \u25cf 2NF actually ensure the data dependencies. \u25cf Example course(stud_id, course_id, course_fee)",
+            "char_count": 649
+        },
+        {
+            "page_number": 48,
+            "content": "Difference between 3NF & BCNF 3NF \u25cf The relation is said to be in 3NF when there is no transitive dependency. \u25cf Lossless decomposition can be achieved by 3NF.\nBCNF \u25cf In BCNF for any relation A->B, A should be a super key of relation. \u25cf Lossless decomposition is hard to achieve in BCNF.",
+            "char_count": 286
+        },
+        {
+            "page_number": 49,
+            "content": "Algorithms for Decomposition BCNF Decomposition \u25cf The definition of BCNF can be used directly to test if a relation is in BCNF.\nHowever, computation of F+ can be a tedious task. \u25cf We first describe simplified tests for verifying if a relation is in BCNF.\nIf a relation is not in BCNF, it can be decomposed to create relations that are in BCNF. \u25cf Here we describe an algorithm to create a lossless decomposition of a relation, such that the decomposition is in BCNF.",
+            "char_count": 465
+        },
+        {
+            "page_number": 50,
+            "content": "Testing for BCNF Testing of a relation schema R to see if it satisfies BCNF can be simplified in some cases: \u25cf To check if a nontrivial dependency \ud835\udec2\u2192\ud835\udec3 causes a violation of BCNF, compute \ud835\udec2+ (the attribute closure of ), and verify that it includes all attributes of R; that is, it is a superkey of R. \u25cf To check if a relation schema R is in BCNF, it suffices to check only the dependencies in the given set F for violation of BCNF, rather than check all dependencies in F+.\nWe can show that if none of the dependencies in F causes a violation of BCNF, then none of the dependencies in F+ will cause a violation of BCNF, either.",
+            "char_count": 626
+        },
+        {
+            "page_number": 51,
+            "content": "BCNF Decomposition Unfortunately, the latter procedure does not work when a relation is decomposed.\nThat is, it does not suffice to use F when we test a relation Ri , in a decomposition of R, for violation of BCNF.\nFor example, consider relation schema R (A, B,C, D, E), with functional dependencies F containing A \u2192 B and BC \u2192 D.\nSuppose this were decomposed into R1(A, B) and R2(A,C, D, E).\nNow, neither of the dependencies in F contains only attributes from (A,C, D, E) so we might be misled into thinking R2 satisfies BCNF.\nIn fact, there is a dependency AC \u2192 D in F+ (which can be inferred using the pseudotransitivity rule from the two dependencies in F) that shows that R2 is not in BCNF.\nThus, we may need a dependency that is in F+, but is not in F, to show that a decomposed relation is not in BCNF.",
+            "char_count": 809
+        },
+        {
+            "page_number": 52,
+            "content": "BCNF Decomposition Algorithm Till now we are able to state a general method to decompose a relation schema so as to satisfy BCNF.\nFollowing shows an algorithm for this task result := {R}; done := false; compute F+; while (not done) do if (there is a schema Ri in result that is not in BCNF) then begin let \ud835\udec2\u2192\ud835\udec3 be a nontrivial functional dependency that holds on Ri such that \ud835\udec2\u2192 Ri is not in F+, and \ud835\udec2\u2229\ud835\udec3 = \u2205; result := (result \u2212 Ri ) \u222a (Ri \u2212\ud835\udec3 ) \u222a (\ud835\udec2 ,\ud835\udec3 ); End else done := true;",
+            "char_count": 477
+        },
+        {
+            "page_number": 53,
+            "content": "BCNF Decomposition Algorithm If R is not in BCNF, we can decompose R into a collection of BCNF schemas R1, R2, . . . , Rn by the algorithm.\nThe algorithm uses dependencies that demonstrate violation of BCNF to perform the decomposition.\nThe decomposition that the algorithm generates is not only in BCNF, but is also a lossless decomposition.",
+            "char_count": 342
+        },
+        {
+            "page_number": 54,
+            "content": "BCNF Decomposition Algorithm To see why our algorithm generates only lossless decompositions, we note that, when we replace a schema Ri with (Ri \u2212\ud835\udec3 ) and (\ud835\udec2 ,\ud835\udec3 ), the dependency \ud835\udec2\u2192\ud835\udec3 holds, and (Ri \u2212\ud835\udec3 ) \u2229 (\ud835\udec2 ,\ud835\udec3 ) = \ud835\udec2 If we did not require \ud835\udec2\u2229\ud835\udec3 = \u2205, then those attributes in \ud835\udec2\u2229\ud835\udec3 would not appear in the schema (Ri \u2212\ud835\udec3) and the dependency \ud835\udec2\u2192\ud835\udec3 would no longer hold.\nIt is easy to see that our decomposition of inst_dept would result from applying the algorithm.\nThe functional dependency dept_name \u2192building, budget satisfies the \ud835\udec2\u2229\ud835\udec3 = \u2205 condition and would therefore be chosen to decompose the schema.\nThe BCNF decomposition algorithm takes time exponential in the size of the initial schema, since the algorithm for checking if a relation in the decomposition satisfies BCNF can take exponential time.",
+            "char_count": 797
+        },
+        {
+            "page_number": 55,
+            "content": "The Third Normal Form in DBMS \u25cf A given relation is said to be in its third normal form when it's in 2NF but has no transitive partial dependency.\nMeaning, when no transitive dependency exists for the attributes that are non-prime, then the relation can be said to be in 3NF. \u25cf A transitive dependency is a functional dependency in which A \u2192 C (A determines C) indirectly, because of A \u2192 B and B \u2192 C (where it is not the case that B \u2192 A).\nThe third Normal Form ensures the reduction of data duplication. \u25cf Lossless, dependency preserving decomposition into 3NF is always possible. \u25cf Every relation in BCNF is also in 3NF, but the reverse is not necessarily true. 3NF allows attributes to be part of a candidate key that is not the primary key; BCNF does not.\nThis means that relations in 3NF are often in BCNF, but not always.",
+            "char_count": 826
+        },
+        {
+            "page_number": 56,
+            "content": "3NF Decomposition An algorithm for finding a dependency-preserving, lossless decomposition into 3NF. let Fc be a canonical cover for F; i := 0; for each functional dependency \ud835\udec2\u2192\ud835\udec3 in Fc i := i + 1; Ri := \ud835\udec2\ud835\udec3; if none of the schemas Rj , j = 1, 2, . . . , i contains a candidate key for R then i := i + 1; Ri := any candidate key for R; /* Optionally, remove redundant relations */ repeat if any schema Rj is contained in another schema Rk then /* Delete Rj */ Rj := Ri ; i := i 1; until no more Rjs can be deleted return (R1, R2, . . . , Ri ) A canonical cover or irreducible a set of functional dependencies FD, is a simplified set of FD that has a similar closure as the original set FD. https://chat.openai.com/share/ae693040-b632-409f-84c3-398ff6248da6",
+            "char_count": 754
+        },
+        {
+            "page_number": 57,
+            "content": "3NF Decomposition The set of dependencies Fc used in the algorithm is a canonical cover for F.\nNote that, the algorithm considers the set of schemas Rj , j = 1, 2, . . . , i; initially i = 0, and in this case the set is empty.\nLet us apply this algorithm to earlier example, dept_advisor (s_ID, i_ID, dept_name) is in 3NF even though it is not in BCNF.\nThe algorithm uses the following functional dependencies in F: f1: i_ID\u2192dept_name f2: s_ID, dept_name\u2192i_ID",
+            "char_count": 459
+        },
+        {
+            "page_number": 58,
+            "content": "3NF Decomposition There are no extraneous attributes in any of the functional dependencies in F, so Fc contains f1 and f2.\nThe algorithm then generates as R1 the schema, (i_ID, dept_name), and as R2 the schema (s_ID, dept_name, i_ID).\nThe algorithm then finds that R2 contains a candidate key, so no further relation schema is created.",
+            "char_count": 335
+        },
+        {
+            "page_number": 59,
+            "content": "3NF Decomposition The resultant set of schemas can contain redundant schemas,with one schema Rk containing all the attributes of another schema Rj .\nFor example, R2 above contains all the attributes from R1.\nThe algorithm deletes all such schemas that are contained in another schema.\nAny dependencies that could be tested on an Rj that is deleted can also be tested on the corresponding relation Rk, and the decomposition is lossless even if Rj is deleted.",
+            "char_count": 457
+        },
+        {
+            "page_number": 60,
+            "content": "Comparison of BCNF and 3NF Of the two normal forms for relational database schemas, 3NF and BCNF there are advantages to 3NF in that we know that it is always possible to obtain a 3NF design without sacrificing losslessness or dependency preservation.\nNevertheless, there are disadvantages to 3NF: We may have to use null values to represent some of the possible meaningful relationships among data items, and there is the problem of repetition of information.",
+            "char_count": 460
+        },
+        {
+            "page_number": 61,
+            "content": "Comparison of BCNF and 3NF The goals of database design with functional dependencies are: 1.\nBCNF. 2.\nLosslessness. 3.\nDependency preservation.\nSince it is not always possible to satisfy all three, we may be forced to choose between BCNF and dependency preservation with 3NF.",
+            "char_count": 275
+        },
+        {
+            "page_number": 62,
+            "content": "Comparison of BCNF and 3NF Given a BCNF decomposition that is not dependency preserving, we consider each dependency in a canonical cover Fc that is not preserved in the decomposition.\nFor each such dependency \ud835\udec2\u2192\ud835\udec3 , we define a materialized view that computes a join of all relations in the decomposition, and projects the result on \ud835\udec2\ud835\udec3.\nThe functional dependency can be tested easily on the materialized view, using one of the constraints unique (\ud835\udec2) or primary key (\ud835\udec2).\nOn the negative side, there is a space and time overhead due to the materialized view, but on the positive side, the application programmer need not worry about writing code to keep redundant data consistent on updates; it is the job of the database system to maintain the materialized view, that is, keep it up to date when the database is updated.",
+            "char_count": 819
+        },
+        {
+            "page_number": 63,
+            "content": "Comparison of BCNF and 3NF Thus, in case we are not able to get a dependency-preserving BCNF decomposition, it is generally preferable to opt for BCNF.",
+            "char_count": 151
+        }
+    ]
+}

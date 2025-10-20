@@ -1,0 +1,351 @@
+{
+    "source_file": "AI UNIT 2.pdf",
+    "total_pages": 69,
+    "pages": [
+        {
+            "page_number": 1,
+            "content": "",
+            "char_count": 0
+        },
+        {
+            "page_number": 2,
+            "content": "Search Algorithms in Artificial Intelligence \u2022 Search algorithms are one of the most important areas of Artificial Intelligence.\nThis topic will explain all about the search algorithms in AI.",
+            "char_count": 191
+        },
+        {
+            "page_number": 3,
+            "content": "Problem-solving agents: \u2022 In Artificial Intelligence, Search techniques are universal problem-solving methods.\nRational agents or Problem-solving agents in AI mostly used these search strategies or algorithms to solve a specific problem and provide the best result.\nProblem-solving agents are the goal-based agents and use atomic representation.\nIn this topic, we will learn various problem-solving search algorithms.",
+            "char_count": 417
+        },
+        {
+            "page_number": 4,
+            "content": "Search Algorithm Terminologies: \u2022 Search: Searchingis a step by step procedure to solve a search-problem in a given search space.\nA search problem can have three main factors: \u2013 Search Space: Search space represents a set of possible solutions, which a system may have. \u2013 Start State: It is a state from where agent begins the search. \u2013 Goal test: It is a function which observe the current state and returns whether the goal state is achieved or not.",
+            "char_count": 451
+        },
+        {
+            "page_number": 5,
+            "content": "\u2022 Search tree: A tree representation of search problem is called Search tree.\nThe root of the search tree is the root node which is corresponding to the initial state. \u2022 Actions: It gives the description of all the available actions to the agent. \u2022 Transition model: A description of what each action do, can be represented as a transition model. \u2022 Path Cost: It is a function which assigns a numeric cost to each path. \u2022 Solution: It is an action sequence which leads from the start node to the goal node. \u2022 Optimal Solution: If a solution has the lowest cost among all solutions.",
+            "char_count": 581
+        },
+        {
+            "page_number": 6,
+            "content": "Properties of Search Algorithms: \u2022 Completeness: A search algorithm is said to be complete if it guarantees to return a solution if at least any solution exists for any random input \u2022 Optimality: If a solution found for an algorithm is guaranteed to be the best solution (lowest path cost) among all other solutions, then such a solution for is said to be an optimal solution. \u2022 Time Complexity: Time complexity is a measure of time for an algorithm to complete its task. \u2022 Space Complexity: It is the maximum storage space required at any point during the search, as the complexity of the problem.",
+            "char_count": 598
+        },
+        {
+            "page_number": 7,
+            "content": "Types of search algorithms",
+            "char_count": 26
+        },
+        {
+            "page_number": 8,
+            "content": "Uninformed/Blind Search: \u2022 The uninformed search does not contain any domain knowledge such as closeness, the location of the goal.\nIt operates in a brute-force way as it only includes information about how to traverse the tree and how to identify leaf and goal nodes.\nUninformed search applies a way in which search tree is searched without any information about the search space like initial state operators and test for the goal, so it is also called blind search.\nIt examines each node of the tree until it achieves the goal node. \u2022 It can be divided into five main types: \u2022 Breadth-first search \u2022 Uniform cost search \u2022 Depth-first search \u2022 Iterative deepening depth-first search \u2022 Bidirectional Search",
+            "char_count": 706
+        },
+        {
+            "page_number": 9,
+            "content": "Informed Search \u2022 Informed search algorithms use domain knowledge.\nIn an informed search, problem information is available which can guide the search.\nInformed search strategies can find a solution more efficiently than an uninformed search strategy.\nInformed search is also called a Heuristic search. \u2022 A heuristic is a way which might not always be guaranteed for best solutions but guaranteed to find a good solution in reasonable time. \u2022 Informed search can solve much complex problem which could not be solved in another way. \u2022 An example of informed search algorithms is a traveling salesman problem. \u2022 Greedy Search \u2022 A* Search",
+            "char_count": 634
+        },
+        {
+            "page_number": 10,
+            "content": "1.\nBreadth-first Search: \u2022 Breadth-first search is the most common search strategy for traversing a tree or graph.\nThis algorithm searches breadthwise in a tree or graph, so it is called breadth-first search. \u2022 BFS algorithm starts searching from the root node of the tree and expands all successor node at the current level before moving to nodes of next level. \u2022 The breadth-first search algorithm is an example of a general-graph search algorithm. \u2022 Breadth-first search implemented using FIFO queue data structure.",
+            "char_count": 518
+        },
+        {
+            "page_number": 11,
+            "content": "\u2022 Advantages of BFS: \u2022 BFS will provide a solution if any solution exists. \u2022 If there are more than one solutions for a given problem, then BFS will provide the minimal solution which requires the least number of steps.",
+            "char_count": 219
+        },
+        {
+            "page_number": 12,
+            "content": "\u2022 Disadvantages of BFS: \u2022 It requires lots of memory since each level of the tree must be saved into memory to expand the next level. \u2022 BFS needs lots of time if the solution is far away from the root node.",
+            "char_count": 206
+        },
+        {
+            "page_number": 13,
+            "content": "\u2022 S---> A--->B---->C--->D---->G--->H--->E---->F--->I---->K",
+            "char_count": 58
+        },
+        {
+            "page_number": 14,
+            "content": "BFS \u2022 Time Complexity: Time Complexity of BFS algorithm can be obtained by the number of nodes traversed in BFS until the shallowest Node.\nWhere the d= depth of shallowest solution and b is a node at every state. \u2022 T (b) = 1+b2+b3+.......+ bd= O (bd) \u2022 Space Complexity: Space complexity of BFS algorithm is given by the Memory size of frontier which is O(bd). \u2022 Completeness: BFS is complete, which means if the shallowest goal node is at some finite depth, then BFS will find a solution. \u2022 Optimality: BFS is optimal if path cost is a non-decreasing function of the depth of the node. \u2022",
+            "char_count": 588
+        },
+        {
+            "page_number": 15,
+            "content": "2.\nDepth-first Search \u2022 Depth-first search isa recursive algorithm for traversing a tree or graph data structure. \u2022 It is called the depth-first search because it starts from the root node and follows each path to its greatest depth node before moving to the next path. \u2022 DFS uses a stack data structure for its implementation. \u2022 The process of the DFS algorithm is similar to the BFS algorithm.",
+            "char_count": 395
+        },
+        {
+            "page_number": 16,
+            "content": "DFS Advantages \u2022 Advantage: \u2022 DFS requires very less memory as it only needs to store a stack of the nodes on the path from root node to the current node. \u2022 It takes less time to reach to the goal node than BFS algorithm (if it traverses in the right path).",
+            "char_count": 257
+        },
+        {
+            "page_number": 17,
+            "content": "Disadvantages of DFS \u2022 There is the possibility that many states keep re-occurring, and there is no guarantee of finding the solution. \u2022 DFS algorithm goes for deep down searching and sometime it may go to the infinite loop.",
+            "char_count": 224
+        },
+        {
+            "page_number": 18,
+            "content": "\u2022 Example: \u2022 In the below search tree, we have shown the flow of depth-first search, and it will follow the order as: \u2022 Root node--->Left node ----> right node.",
+            "char_count": 160
+        },
+        {
+            "page_number": 19,
+            "content": "",
+            "char_count": 0
+        },
+        {
+            "page_number": 20,
+            "content": "DFS \u2022 Completeness: DFS search algorithm is complete within finite state space as it will expand every node within a limited search tree. \u2022 Time Complexity: Time complexity of DFS will be equivalent to the node traversed by the algorithm.\nIt is given by:",
+            "char_count": 254
+        },
+        {
+            "page_number": 21,
+            "content": "\u2022 T(n)= 1+ n2+ n3 +.........+ nm=O(nm) \u2022 Where, m= maximum depth of any node and this can be much larger than d (Shallowest solution depth) \u2022 Space Complexity: DFS algorithm needs to store only single path from the root node, hence space complexity of DFS is equivalent to the size of the fringe set, which is O(bm). \u2022 Optimal: DFS search algorithm is non-optimal, as it may generate a large number of steps or high cost to reach to the goal node",
+            "char_count": 446
+        },
+        {
+            "page_number": 22,
+            "content": "3.\nDepth-Limited Search Algorithm: \u2022 A depth-limited search algorithm is similar to depth-first search with a predetermined limit.\nDepth-limited search can solve the drawback of the infinite path in the Depth-first search.\nIn this algorithm, the node at the depth limit will treat as it has no successor nodes further. \u2022 Depth-limited search can be terminated with two Conditions of failure: \u2022 Standard failure value: It indicates that problem does not have any solution. \u2022 Cutoff failure value: It defines no solution for the problem within a given depth limit.",
+            "char_count": 562
+        },
+        {
+            "page_number": 23,
+            "content": "\u2022 Advantages: \u2022 Depth-limited search is Memory efficient. \u2022 Disadvantages: \u2022 Depth-limited search also has a disadvantage of incompleteness. \u2022 It may not be optimal if the problem has more than one solution.",
+            "char_count": 207
+        },
+        {
+            "page_number": 24,
+            "content": "\u2022 Completeness: DLS search algorithm is complete if the solution is above the depth-limit. \u2022 Time Complexity: Time complexity of DLS algorithm is O(b\u2113). \u2022 Space Complexity: Space complexity of DLS algorithm is O(b\u00d7\u2113). \u2022 Optimal: Depth-limited search can be viewed as a special case of DFS, and it is also not optimal even if \u2113>d.",
+            "char_count": 329
+        },
+        {
+            "page_number": 25,
+            "content": "4.\nUniform-cost Search Algorithm: \u2022 Uniform-cost search is a searching algorithm used for traversing a weighted tree or graph.\nThis algorithm comes into play when a different cost is available for each edge.\nThe primary goal of the uniform-cost search is to find a path to the goal node which has the lowest cumulative cost.\nUniform-cost search expands nodes according to their path costs form the root node.\nIt can be used to solve any graph/tree where the optimal cost is in demand.\nA uniform-cost search algorithm is implemented by the priority queue.\nIt gives maximum priority to the lowest cumulative cost.\nUniform cost search is equivalent to BFS algorithm if the path cost of all edges is the same.",
+            "char_count": 705
+        },
+        {
+            "page_number": 26,
+            "content": "\u2022 Advantages: \u2022 Uniform cost search is optimal because at every state the path with the least cost is chosen. \u2022 Disadvantages: \u2022 It does not care about the number of steps involve in searching and only concerned about path cost.\nDue to which this algorithm may be stuck in an infinite loop.",
+            "char_count": 290
+        },
+        {
+            "page_number": 27,
+            "content": "",
+            "char_count": 0
+        },
+        {
+            "page_number": 28,
+            "content": "\u2022 Time Complexity: \u2022 Let C* is Cost of the optimal solution, and \u03b5 is each step to get closer to the goal node.\nThen the number of steps is = C*/\u03b5+1.\nHere we have taken +1, as we start from state 0 and end to C*/\u03b5. \u2022 Hence, the worst-case time complexity of Uniform-cost search isO(b1 + [C*/\u03b5])/. \u2022 Space Complexity: \u2022 The same logic is for space complexity so, the worst-case space complexity of Uniform-cost search is O(b1 + [C*/\u03b5]). \u2022 Optimal: \u2022 Uniform-cost search is always optimal as it only selects a path with the lowest path cost.",
+            "char_count": 539
+        },
+        {
+            "page_number": 29,
+            "content": "Iterative deepening depth-first Search: \u2022 The iterative deepening algorithm is a combination of DFS and BFS algorithms.\nThis search algorithm finds out the best depth limit and does it by gradually increasing the limit until a goal is found. \u2022 This algorithm performs depth-first search up to a certain \"depth limit\", and it keeps increasing the depth limit after each iteration until the goal node is found. \u2022 This Search algorithm combines the benefits of Breadth-first search's fast search and depth-first search's memory efficiency. \u2022 The iterative search algorithm is useful uninformed search when search space is large, and depth of goal node is unknown.",
+            "char_count": 660
+        },
+        {
+            "page_number": 30,
+            "content": "\u2022 Advantages: \u2022 It combines the benefits of BFS and DFS search algorithm in terms of fast search and memory efficiency. \u2022 Disadvantages: \u2022 The main drawback of IDDFS is that it repeats all the work of the previous phase.",
+            "char_count": 220
+        },
+        {
+            "page_number": 31,
+            "content": "\u2022 Example: \u2022 Following tree structure is showing the iterative deepening depth-first search.\nIDDFS algorithm performs various iterations until it does not find the goal node.\nThe iteration performed by the algorithm is given as:",
+            "char_count": 228
+        },
+        {
+            "page_number": 32,
+            "content": "",
+            "char_count": 0
+        },
+        {
+            "page_number": 33,
+            "content": "1'st Iteration-----> A 2'nd Iteration----> A, B, C 3'rd Iteration------>A, B, D, E, C, F, G 4'th Iteration------>A, B, D, H, I, E, C, F, K, G In the fourth iteration, the algorithm will find the goal node.",
+            "char_count": 205
+        },
+        {
+            "page_number": 34,
+            "content": "\u2022 Completeness: This algorithm is complete is if the branching factor is finite. \u2022 Time Complexity: Let's suppose b is the branching factor and depth is d then the worst-case time complexity is O(bd). \u2022 Space Complexity: The space complexity of IDDFS will be O(bd). \u2022 Optimal: IDDFS algorithm is optimal if path cost is a nondecreasing function of the depth of the node.",
+            "char_count": 370
+        },
+        {
+            "page_number": 35,
+            "content": "Bidirectional Search Algorithm \u2022 Bidirectional search algorithm runs two simultaneous searches, one form initial state called as forward-search and other from goal node called as backward-search, to find the goal node.\nBidirectional search replaces one single search graph with two small sub graphs in which one starts the search from an initial vertex and other starts from goal vertex.\nThe search stops when these two graphs intersect each other. \u2022 Bidirectional search can use search techniques such as BFS, DFS, DLS, etc.",
+            "char_count": 525
+        },
+        {
+            "page_number": 36,
+            "content": "\u2022 Advantages: \u2022 Bidirectional search is fast. \u2022 Bidirectional search requires less memory \u2022 Disadvantages: \u2022 Implementation of the bidirectional search tree is difficult. \u2022 In bidirectional search, one should know the goal state in advance. \u2022 Example: \u2022 In the below search tree, bidirectional search algorithm is applied.\nThis algorithm divides one graph/tree into two sub-graphs.\nIt starts traversing from node 1 in the forward direction and starts from goal node 16 in the backward direction. \u2022 The algorithm terminates at node 9 where two searches meet.",
+            "char_count": 557
+        },
+        {
+            "page_number": 37,
+            "content": "\u2022 Completeness: Bidirectional Search is complete if we use BFS in both searches. \u2022 Time Complexity: Time complexity of bidirectional search using BFS is O(bd). \u2022 Space Complexity: Space complexity of bidirectional search is O(bd). \u2022 Optimal: Bidirectional search is Optimal.",
+            "char_count": 274
+        },
+        {
+            "page_number": 38,
+            "content": "Heuristic techniques \u2022 A heuristic is a technique that is used to solve a problem faster than the classic methods.\nThese techniques are used to find the approximate solution of a problem when classical methods do not. \u2022 Heuristics are said to be the problem-solving techniques that result in practical and quick solutions.",
+            "char_count": 322
+        },
+        {
+            "page_number": 39,
+            "content": "Why do we need heuristics? \u2022 Heuristics are used in situations in which there is the requirement of a short-term solution.\nOn facing complex situations with limited resources and time, Heuristics can help the companies to make quick decisions by shortcuts and approximated calculations.\nMost of the heuristic methods involve mental shortcuts to make decisions on past experiences. \u2022 The heuristic method might not always provide us the finest solution, but it is assured that it helps us find a good solution in a reasonable time.",
+            "char_count": 530
+        },
+        {
+            "page_number": 40,
+            "content": "",
+            "char_count": 0
+        },
+        {
+            "page_number": 41,
+            "content": "A* Search Algorithm \u2022 A* search is the most commonly known form of best-first search.\nIt uses the heuristic function h(n) and cost to reach the node n from the start state g(n).\nIt has combined features of UCS and greedy best-first search, by which it solve the problem efficiently. \u2022 It finds the shortest path through the search space using the heuristic function.\nThis search algorithm expands fewer search tree and gives optimal results faster.",
+            "char_count": 448
+        },
+        {
+            "page_number": 42,
+            "content": "\u2022 Algorithm of A* search: \u2022 Step 1: Place the starting node in the OPEN list. \u2022 Step 2: Check if the OPEN list is empty or not.\nIf the list is empty, then return failure and stops. \u2022 Step 3: Select the node from the OPEN list which has the smallest value of the evaluation function (g+h).\nIf node n is the goal node, then return success and stop, otherwise. \u2022 Step 4: Expand node n and generate all of its successors, and put n into the closed list.\nFor each successor n', check whether n' is already in the OPEN or CLOSED list.\nIf not, then compute the evaluation function for n' and place it into the Open list. \u2022 Step 5: Else, if node n' is already in OPEN and CLOSED, then it should be attached to the back pointer which reflects the lowest g(n') value. \u2022 Step 6: Return to Step 2. \u2022 https://youtu.be/vP5TkF0xJgI",
+            "char_count": 816
+        },
+        {
+            "page_number": 43,
+            "content": "",
+            "char_count": 0
+        },
+        {
+            "page_number": 44,
+            "content": "\u2022 Advantages: \u2022 A* search algorithm is the best algorithm than other search algorithms. \u2022 A* search algorithm is optimal and complete. \u2022 This algorithm can solve very complex problems.",
+            "char_count": 184
+        },
+        {
+            "page_number": 45,
+            "content": "\u2022 Disadvantages: \u2022 It does not always produce the shortest path as it mostly based on heuristics and approximation. \u2022 A* search algorithm has some complexity issues. \u2022 The main drawback of A* is memory requirement as it keeps all generated nodes in the memory, so it is not practical for various large-scale problems.",
+            "char_count": 317
+        },
+        {
+            "page_number": 46,
+            "content": "Example",
+            "char_count": 7
+        },
+        {
+            "page_number": 47,
+            "content": "Solution",
+            "char_count": 8
+        },
+        {
+            "page_number": 48,
+            "content": "\u2022 Initialization: {(S, 5)} \u2022 Iteration1: {(S--> A, 4), (S-->G, 10)} \u2022 Iteration2: {(S--> A-->C, 4), (S--> A-->B, 7), (S-->G, 10)} \u2022 Iteration3: {(S--> A-->C--->G, 6), (S--> A-->C--->D, 11), (S--> A-->B, 7), (S-->G, 10)} \u2022 Iteration 4 will give the final result, as S--->A--->C--->G it provides the optimal path with cost 6.",
+            "char_count": 323
+        },
+        {
+            "page_number": 49,
+            "content": "\u2022 Complete: A* algorithm is complete as long as: \u2022 Branching factor is finite. \u2022 Cost at every action is fixed. \u2022 Optimal: A* search algorithm is optimal if it follows below two conditions: \u2022 Admissible: the first condition requires for optimality is that h(n) should be an admissible heuristic for A* tree search.\nAn admissible heuristic is optimistic in nature. \u2022 Consistency: Second required condition is consistency for only A* graph-search.",
+            "char_count": 445
+        },
+        {
+            "page_number": 50,
+            "content": "\u2022 Time Complexity: The time complexity of A* search algorithm depends on heuristic function, and the number of nodes expanded is exponential to the depth of solution d.\nSo the time complexity is O(b^d), where b is the branching factor. \u2022 Space Complexity: The space complexity of A* search algorithm is O(b^d)",
+            "char_count": 309
+        },
+        {
+            "page_number": 51,
+            "content": "Best-first Search Algorithm (Greedy Search): \u2022 Greedy best-first search algorithm always selects the path which appears best at that moment.\nIt is the combination of depth-first search and breadth-first search algorithms.\nIt uses the heuristic function and search.\nBest-first search allows us to take the advantages of both algorithms.\nWith the help of best-first search, at each step, we can choose the most promising node.\nIn the best first search algorithm, we expand the node which is closest to the goal node and the closest cost is estimated by heuristic function, i.e. \u2022 f(n)= g(n). \u2022 Were, h(n)= estimated cost from node n to the goal. \u2022 The greedy best first algorithm is implemented by the priority queue.",
+            "char_count": 715
+        },
+        {
+            "page_number": 52,
+            "content": "Best first search algorithm: \u2022 Step 1: Place the starting node into the OPEN list. \u2022 Step 2: If the OPEN list is empty, Stop and return failure. \u2022 Step 3: Remove the node n, from the OPEN list which has the lowest value of h(n), and places it in the CLOSED list. \u2022 Step 4: Expand the node n, and generate the successors of node n. \u2022 Step 5: Check each successor of node n, and find whether any node is a goal node or not.\nIf any successor node is goal node, then return success and terminate the search, else proceed to Step 6. \u2022 Step 6: For each successor node, algorithm checks for evaluation function f(n), and then check if the node has been in either OPEN or CLOSED list.\nIf the node has not been in both list, then add it to the OPEN list. \u2022 Step 7: Return to Step 2.",
+            "char_count": 773
+        },
+        {
+            "page_number": 53,
+            "content": "Advantages \u2022 Best first search can switch between BFS and DFS by gaining the advantages of both the algorithms. \u2022 This algorithm is more efficient than BFS and DFS algorithms.",
+            "char_count": 175
+        },
+        {
+            "page_number": 54,
+            "content": "Disadvantages \u2022 It can behave as an unguided depth-first search in the worst case scenario. \u2022 It can get stuck in a loop as DFS. \u2022 This algorithm is not optimal.",
+            "char_count": 161
+        },
+        {
+            "page_number": 55,
+            "content": "Example \u2022 Consider the below search problem, and we will traverse it using greedy best-first search.\nAt each iteration, each node is expanded using evaluation function f(n)=h(n) , which is given in the below table.",
+            "char_count": 214
+        },
+        {
+            "page_number": 56,
+            "content": "In this search example, we are using two lists which are OPEN and CLOSED Lists.\nFollowing are the iteration for traversing the above example.",
+            "char_count": 141
+        },
+        {
+            "page_number": 57,
+            "content": "",
+            "char_count": 0
+        },
+        {
+            "page_number": 58,
+            "content": "\u2022 Expand the nodes of S and put in the CLOSED list \u2022 Initialization: Open [A, B], Closed [S] \u2022 Iteration 1: Open [A], Closed [S, B] \u2022 Iteration 2: Open [E, F, A], Closed [S, B] : Open [E, A], Closed [S, B, F] \u2022 Iteration 3: Open [I, G, E, A], Closed [S, B, F] : Open [I, E, A], Closed [S, B, F, G] \u2022 Hence the final solution path will be: S----> B----->F----> G",
+            "char_count": 361
+        },
+        {
+            "page_number": 59,
+            "content": "\u2022 Time Complexity: The worst case time complexity of Greedy best first search is O(bm). \u2022 Space Complexity: The worst case space complexity of Greedy best first search is O(bm).\nWhere, m is the maximum depth of the search space. \u2022 Complete: Greedy best-first search is also incomplete, even if the given state space is finite. \u2022 Optimal: Greedy best first search algorithm is not optimal.",
+            "char_count": 388
+        },
+        {
+            "page_number": 60,
+            "content": "Hill Climbing Algorithm \u2022 It is a technique for optimizing the mathematical problems.\nHill Climbing is widely used when a good heuristic is available. \u2022 It is a local search algorithm that continuously moves in the direction of increasing elevation/value to find the mountain's peak or the best solution to the problem. \u2022 It terminates when it reaches a peak value where no neighbour has a higher value. \u2022 Travelling-salesman Problem is one of the widely discussed examples of the Hill climbing algorithm, in which we need to minimize the distance travelled by the salesman.",
+            "char_count": 574
+        },
+        {
+            "page_number": 61,
+            "content": "\u2022 Step 1: Evaluate the initial state.\nIf it is the goal state, then return success and Stop. \u2022 Step 2: Loop Until a solution is found or there is no new operator left to apply. \u2022 Step 3: Select and apply an operator to the current state. \u2022 Step 4: Check new state: \u2022 If it is a goal state, then return to success and quit. \u2022 Else if it is better than the current state, then assign a new state as a current state. \u2022 Else if not better than the current state, then return to step2. \u2022 Step 5: Exit.",
+            "char_count": 496
+        },
+        {
+            "page_number": 62,
+            "content": "Features of Hill Climbing \u2022 Generate and Test variant: Hill Climbing is the variant of Generate and Test method.\nThe Generate and Test method produce feedback which helps to decide which direction to move in the search space. \u2022 Greedy approach: Hill-climbing algorithm search moves in the direction which optimizes the cost. \u2022 No backtracking: It does not backtrack the search space, as it does not remember the previous states.",
+            "char_count": 428
+        },
+        {
+            "page_number": 63,
+            "content": "",
+            "char_count": 0
+        },
+        {
+            "page_number": 64,
+            "content": "Different regions in the state space landscape: \u2022 Local Maximum: Local maximum is a state which is better than its neighbor states, but there is also another state which is higher than it. \u2022 Global Maximum: Global maximum is the best possible state of state space landscape.\nIt has the highest value of objective function. \u2022 Current state: It is a state in a landscape diagram where an agent is currently present. \u2022 Flat local maximum: It is a flat space in the landscape where all the neighbor states of current states have the same value. \u2022 Shoulder: It is a plateau region which has an uphill edge.",
+            "char_count": 601
+        },
+        {
+            "page_number": 65,
+            "content": "Constraint Satisfaction Problems in Artificial Intelligence \u2022 We have encountered a wide variety of methods, including adversarial search and instant search, to address various issues. \u2022 Every method for issue has a single purpose in mind: to locate a remedy that will enable that achievement of the objective.\nHowever there were no restrictions just on bots' capability to resolve issues as well as arrive at responses in adversarial search and local search, respectively. \u2022 These section examines the constraint optimization methodology, another form or real concern method.\nBy its name, constraints fulfilment implies that such an issue must be solved while adhering to a set of restrictions or guidelines.",
+            "char_count": 709
+        },
+        {
+            "page_number": 66,
+            "content": "\u2022 Three factors affect restriction compliance, particularly regarding: \u2022 It refers to a group of parameters, or X. \u2022 D: The variables are contained within a collection several domain.\nEvery variables has a distinct scope. \u2022 C: It is a set of restrictions that the collection of parameters must abide by.",
+            "char_count": 303
+        },
+        {
+            "page_number": 67,
+            "content": "Types of Constraints in CSP \u2022 Basically, there are three different categories of limitations in regard towards the parameters: \u2022 Unary restrictions are the easiest kind of restrictions because they only limit the value of one variable. \u2022 Binary resource limits: These restrictions connect two parameters.\nA value between x1 and x3 can be found in a variable named x2. \u2022 Global Resource limits: This kind of restriction includes a unrestricted amount of variables.",
+            "char_count": 463
+        },
+        {
+            "page_number": 68,
+            "content": "\u2022 Think of a Sudoku puzzle where some of the squares have initial fills of certain integers. \u2022 You must complete the empty squares with numbers between 1 and 9, making sure that no rows, columns, or blocks contains a recurring integer of any kind.\nThis solving multi objective issue is pretty elementary.\nA problem must be solved while taking certain limitations into consideration. \u2022 The integer range (1-9) that really can occupy the other spaces is referred to as a domain, while the empty spaces themselves were referred as variables.\nThe values of the variables are drawn first from realm.\nConstraints are the rules that determine how a variable will select the scope.",
+            "char_count": 673
+        },
+        {
+            "page_number": 69,
+            "content": "Thank You",
+            "char_count": 9
+        }
+    ]
+}

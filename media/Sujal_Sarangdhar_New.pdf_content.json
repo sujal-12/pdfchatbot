@@ -1,0 +1,187 @@
+{
+    "title": "Sujal Sarangdhar - Software Developer",
+    "summary": "Sujal Sarangdhar is a Software Developer with experience in full-stack application development, machine learning, and IoT solutions. He has expertise in Python, Django, HTML, CSS, and JavaScript, along with databases like MySQL and MongoDB. His project experience includes building live cab booking systems, IoT-enabled employee tracking, and machine learning classification models. He holds an MCA and BSc in Computer Science and possesses certifications in AWS Cloud Practitioner and Core Java.",
+    "personal_information": {
+        "name": "Sujal Sarangdhar",
+        "email": "drjsarang@gmail.com",
+        "phone": "(+91) 8669473784",
+        "linkedin": "https://www.linkedin.com/in/sujal-sarangdhar-a6722b193/",
+        "portfolio_url": "https://sujal-portfolio1.netlify.app/",
+        "github": "https://github.com/sujal-12"
+    },
+    "key_sections": {
+        "technical_skills": {
+            "programming_languages": [
+                "Python",
+                "HTML",
+                "CSS",
+                "JS",
+                "Java Core (with OOPs concepts)"
+            ],
+            "tools_version_control": [
+                "Visual Studio code",
+                "Git",
+                "Github"
+            ],
+            "technologies": [
+                "Django",
+                "Tensorflow",
+                "Pytorch"
+            ],
+            "databases": [
+                "MYSQL",
+                "SQLite3",
+                "MongoDB"
+            ],
+            "concepts": [
+                "Artificial Intelligence",
+                "Machine Learning",
+                "Data Science",
+                "Database Normalization",
+                "API",
+                "LLM's"
+            ]
+        },
+        "experience": [
+            {
+                "role": "Software Developer",
+                "company": "Tega IT Solutions PVT. LTD.",
+                "duration": "Feb 2024 - Current",
+                "responsibilities": [
+                    "Worked on 30+ student projects, 1 product-based project, and 1 live project using Python, Django, and machine learning.",
+                    "Built and deployed full-stack applications with HTML, CSS, JavaScript, and Django.",
+                    "Integrated ML models and optimized backend performance."
+                ]
+            }
+        ],
+        "education": [
+            {
+                "degree": "MCA",
+                "institution": "K.K.Wagh Institute Of Engg. Education And Research, Nashik.",
+                "percentage": "79.43%",
+                "year": "July 2024"
+            },
+            {
+                "degree": "BSC(Comp. Sci.)",
+                "institution": "H.P.T Arts & R.Y.K Science College, Nashik.",
+                "percentage": "86.73%",
+                "year": "October 2022"
+            },
+            {
+                "degree": "HSC",
+                "institution": "G.M.D Arts, B.W. Commerce And Science College, Sinnar, Nashik.",
+                "percentage": "69.23%",
+                "year": "June 2019"
+            },
+            {
+                "degree": "SSC",
+                "institution": "B.N.Sarda Vidyalaya, Sinnar, Nashik.",
+                "percentage": "85.80%",
+                "year": "March 2017"
+            }
+        ],
+        "projects": [
+            {
+                "name": "Vansat Cabs (Live Project)",
+                "technologies": [
+                    "Python",
+                    "Django",
+                    "API Integration",
+                    "SQLite3",
+                    "HTML",
+                    "CSS",
+                    "JS"
+                ],
+                "description": "Developed the backend of an online cab booking system using the Django framework. Handled RESTful API integration, implemented dynamic routing with map-based location services, and managed source/destination listings. Enabled real-time route creation and trip booking functionality using geolocation data."
+            },
+            {
+                "name": "IoT-Enabled Employee Tracking Software (Product Based)",
+                "technologies": [
+                    "Python",
+                    "Django",
+                    "Sqlite3",
+                    "HTML",
+                    "CSS",
+                    "JS"
+                ],
+                "description": "An industry-based employee attendance system using IoT for real-time tracking. The software provides live monitoring of staff in each department, ensuring accurate attendance and efficient workforce management."
+            },
+            {
+                "name": "Superlative Classification Model",
+                "technologies": [
+                    "Python",
+                    "Django",
+                    "Machine Learning",
+                    "HTML",
+                    "CSS",
+                    "JS",
+                    "sqlite3"
+                ],
+                "description": "A machine learning-based project consisting of three modules: image, pose, and csv. Developed using the Django Framework, it is designed to be user-friendly for individuals without prior knowledge of machine learning concepts."
+            }
+        ],
+        "soft_skills": [
+            "Problem-solving and analytical skills",
+            "Effective communication and team collaboration",
+            "Adaptability and flexibility",
+            "Attention to detail and quality assurance",
+            "Time management and organization"
+        ],
+        "certificates": [
+            {
+                "name": "AWS Cloud Practitioner Essential Certificate",
+                "date": "24/06/2022"
+            },
+            {
+                "name": "Core Java Certificate (ISO Certified)",
+                "date": "20/05/2022"
+            }
+        ],
+        "social_engagements": [
+            "1-month internship in Railways under Rail Kaushal Vikas Yojna Scheme",
+            "Participation in Solar Workshops & IOT Workshops at R.Y.K College"
+        ]
+    },
+    "important_terms": [
+        "Python",
+        "Django",
+        "HTML",
+        "CSS",
+        "JS",
+        "Java Core",
+        "OOPs",
+        "Visual Studio code",
+        "Git",
+        "Github",
+        "Tensorflow",
+        "Pytorch",
+        "MYSQL",
+        "SQLite3",
+        "MongoDB",
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Data Science",
+        "Database Normalization",
+        "API",
+        "LLM's",
+        "Full-stack applications",
+        "Backend performance optimization",
+        "RESTful API integration",
+        "Dynamic routing",
+        "Map-based location services",
+        "Geolocation data",
+        "IoT-Enabled",
+        "Employee tracking",
+        "Workforce management",
+        "Classification Model",
+        "Image processing",
+        "Pose detection",
+        "User-friendly design",
+        "AWS Cloud Practitioner",
+        "Core Java",
+        "ISO Certified",
+        "Rail Kaushal Vikas Yojna Scheme",
+        "Solar Workshops",
+        "IOT Workshops"
+    ]
+}
