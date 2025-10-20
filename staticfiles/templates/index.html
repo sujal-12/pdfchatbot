@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujal PDF Assistant: PDF Chat 🤖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #4285F4;
+            --secondary-color: #34A853;
+            --background-light: #f5f5f5;
+            --chat-user: #DCF8C6;
+            --chat-bot: #FFFFFF;
+            --text-dark: #202124;
+            --text-light: #5f6368;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: var(--chat-bot);
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 750px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 80vh;
+            position: relative;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-section {
+            padding: 15px;
+            background-color: #e8e8e8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .upload-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #pdfFile {
+            display: none;
+        }
+
+        .custom-file-upload {
+            border: 1px solid var(--primary-color);
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 20px;
+            background-color: white;
+            color: var(--primary-color);
+            font-size: 0.9em;
+            transition: all 0.2s;
+        }
+
+        .custom-file-upload:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .upload-controls button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .upload-controls button:hover {
+            background-color: #2e8b46;
+        }
+
+        #uploadStatus {
+            font-weight: 500;
+            color: var(--text-light);
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        #chatInterface {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .chat-container {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: var(--background-light);
+            border-top: 1px solid #ddd;
+        }
+
+        .message {
+            margin-bottom: 12px;
+            max-width: 85%;
+            padding: 12px 18px;
+            border-radius: 18px;
+            word-wrap: break-word;
+            font-size: 0.95em;
+            line-height: 1.4;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background-color: var(--chat-user);
+            border-bottom-right-radius: 4px;
+        }
+
+        .bot-message {
+            align-self: flex-start;
+            background-color: var(--chat-bot);
+            border: 1px solid #e0e0e0;
+            border-bottom-left-radius: 4px;
+        }
+
+        #thinking-indicator {
+            background-color: #f1f1f1;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .input-area {
+            display: flex;
+            padding: 15px;
+            background-color: white;
+            border-top: 1px solid #ddd;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #userInput {
+            flex-grow: 1;
+            padding: 12px 20px;
+            border: 1px solid #ccc;
+            border-radius: 24px;
+            margin-right: 10px;
+            outline: none;
+            font-size: 1em;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            min-width: 200px;
+        }
+
+        #userInput:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(66, 133, 244, 0.2);
+        }
+
+        .input-area button {
+            border: none;
+            border-radius: 24px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        #sendButton {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+        }
+
+        #sendButton:hover {
+            background-color: #3b76d3;
+        }
+
+        #voiceButton {
+            background-color: var(--secondary-color);
+            color: white;
+            margin-left: 5px;
+            width: 44px;
+            padding: 10px 0;
+            font-size: 1.2em;
+        }
+
+        #voiceButton:hover {
+            background-color: #218838;
+        }
+
+        #voiceButton.listening {
+            background-color: #EA4335;
+            box-shadow: 0 0 10px rgba(234, 67, 53, 0.5);
+        }
+
+        /* ✅ Updated Stop Voice Button (Initially Hidden) */
+        #stopVoiceButton {
+            background-color: #ff4757;
+            color: white;
+            margin-left: 5px;
+            width: 44px;
+            padding: 10px 0;
+            font-size: 1.2em;
+            display: none; /* Hidden by default */
+        }
+
+        #stopVoiceButton:hover {
+            background-color: #c82333;
+        }
+
+        /* --- Full Page Loader --- */
+        #full-page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .loader-text {
+            color: #0d6efd;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .pulse-loader {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #0d6efd;
+            animation: pulse-animation 1.5s infinite ease-in-out;
+        }
+
+        @keyframes pulse-animation {
+            0% { transform: scale(0); opacity: 1; }
+            50% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+
+        @media (max-width: 600px) {
+            header { font-size: 1.1em; padding: 10px; }
+            .container { width: 100%; border-radius: 0; min-height: 100vh; }
+            .upload-controls button, .custom-file-upload { width: 90%; text-align: center; }
+            #userInput { width: 100%; margin: 5px 0; }
+            #sendButton, #voiceButton, #stopVoiceButton { width: 45%; margin-top: 5px; }
+            .chat-container { padding: 10px; }
+            .message { font-size: 0.9em; padding: 10px 14px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="full-page-loader">
+        <div class="pulse-loader"></div>
+        <div class="loader-text">Processing PDF and initializing chat session...</div>
+    </div>
+
+    <div class="container">
+        <header>Sujal PDF Assistant: PDF Chat 🤖</header>
+
+        <div class="upload-section">
+            <div class="upload-controls">
+                <label for="pdfFile" class="custom-file-upload">Choose PDF</label>
+                <input type="file" id="pdfFile" accept=".pdf">
+                <button onclick="uploadPDF()">Process File</button>
+            </div>
+            <div id="uploadStatus">Awaiting PDF Upload...</div>
+        </div>
+
+        <div id="chatInterface">
+            <div class="chat-container" id="chatContainer">
+                <div class="bot-message message">Hello! Please upload a PDF to begin chatting about its contents. I can also <strong>speak</strong> the answer if you use the microphone.</div>
+            </div>
+
+            <div class="input-area">
+                <input type="text" id="userInput" placeholder="Ask a question about the PDF..." autocomplete="off">
+                <button id="sendButton" onclick="sendMessage()">Send</button>
+                <button id="voiceButton">🎤</button>
+                <button id="stopVoiceButton" onclick="stopSpeaking()">⏹️</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loader = document.getElementById('full-page-loader');
+        const chatContainer = document.getElementById('chatContainer');
+        const userInput = document.getElementById('userInput');
+        const sendButton = document.getElementById('sendButton');
+        const voiceButton = document.getElementById('voiceButton');
+        const stopVoiceButton = document.getElementById('stopVoiceButton');
+        const uploadStatus = document.getElementById('uploadStatus');
+
+        let isListening = false;
+        let expectVoiceResponse = false;
+        let recognition = null;
+        const synth = window.speechSynthesis;
+
+        // --- Show file name immediately when selected ---
+        document.getElementById('pdfFile').addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+                uploadStatus.innerHTML = `📁 <strong>${file.name}</strong> selected. Ready to process.`;
+            } else {
+                uploadStatus.textContent = "⚠️ No file selected.";
+            }
+        });
+
+        function appendMessage(sender, text) {
+            const msgDiv = document.createElement('div');
+            msgDiv.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
+            msgDiv.textContent = text;
+            chatContainer.appendChild(msgDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function speak(text) {
+            if (synth.speaking) synth.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.onstart = () => { stopVoiceButton.style.display = 'inline-block'; };
+            utterance.onend = () => { stopVoiceButton.style.display = 'none'; };
+            synth.speak(utterance);
+        }
+
+        function stopSpeaking() {
+            if (synth.speaking) synth.cancel();
+            stopVoiceButton.style.display = 'none';
+        }
+
+        async function uploadPDF() {
+            const fileInput = document.getElementById('pdfFile');
+            const file = fileInput.files[0];
+            if (!file) {
+                uploadStatus.textContent = "⚠️ Please select a PDF file first.";
+                return;
+            }
+
+            loader.style.display = 'flex';
+            uploadStatus.textContent = "📤 Uploading and processing PDF...";
+
+            const formData = new FormData();
+            formData.append('pdf_file', file);
+
+            try {
+                const csrfToken = document.cookie.split('; ').find(r => r.startsWith('csrftoken'))?.split('=')[1];
+                const response = await fetch('{% url "upload_pdf" %}', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'X-CSRFToken': csrfToken }
+                });
+
+                const data = await response.json();
+                if (data.status === 'success') {
+                    uploadStatus.innerHTML = `✅ <strong>${file.name}</strong> uploaded successfully. Ready to chat!`;
+                    appendMessage('bot', data.message);
+                } else {
+                    uploadStatus.innerHTML = `❌ Upload failed: ${data.message}`;
+                }
+            } catch {
+                uploadStatus.innerHTML = `❌ Network Error: Could not connect to server.`;
+            } finally {
+                loader.style.display = 'none';
+            }
+        }
+
+        async function sendMessage(prompt = userInput.value) {
+            prompt = prompt.trim();
+            if (!prompt) return;
+            const voice_mode = expectVoiceResponse;
+            appendMessage('user', prompt);
+            userInput.value = '';
+            sendButton.disabled = true;
+
+            const thinkingMsg = document.createElement('div');
+            thinkingMsg.classList.add('bot-message', 'message');
+            thinkingMsg.id = 'thinking-indicator';
+            thinkingMsg.textContent = 'SujalGPT is thinking...';
+            chatContainer.appendChild(thinkingMsg);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+
+            expectVoiceResponse = false;
+
+            try {
+                const csrfToken = document.cookie.split('; ').find(r => r.startsWith('csrftoken'))?.split('=')[1];
+                const response = await fetch('{% url "chat" %}', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrfToken },
+                    body: JSON.stringify({ prompt })
+                });
+
+                const data = await response.json();
+                thinkingMsg.remove();
+
+                if (data.status === 'success') {
+                    appendMessage('bot', data.response);
+                    if (voice_mode) speak(data.response);
+                } else appendMessage('bot', `Error: ${data.message}`);
+            } catch {
+                thinkingMsg.remove();
+                appendMessage('bot', 'Network error. Could not get a response.');
+            } finally {
+                sendButton.disabled = false;
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+        }
+
+        // --- Voice Input ---
+        if ('webkitSpeechRecognition' in window) {
+            recognition = new webkitSpeechRecognition();
+            recognition.lang = 'en-US';
+            recognition.onstart = () => {
+                isListening = true;
+                voiceButton.classList.add('listening');
+                voiceButton.textContent = '🔴 Stop';
+            };
+            recognition.onend = () => {
+                isListening = false;
+                voiceButton.classList.remove('listening');
+                voiceButton.textContent = '🎤';
+            };
+            recognition.onresult = e => {
+                const transcript = e.results[0][0].transcript;
+                userInput.value = transcript;
+                if (transcript.trim()) {
+                    expectVoiceResponse = true;
+                    sendMessage(transcript);
+                }
+            };
+            voiceButton.onclick = () => isListening ? recognition.stop() : recognition.start();
+        } else {
+            voiceButton.disabled = true;
+            voiceButton.textContent = '🔇';
+        }
+
+        userInput.addEventListener('keypress', e => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
