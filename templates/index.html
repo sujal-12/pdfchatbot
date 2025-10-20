@@ -34,11 +34,11 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
             width: 90%;
             max-width: 750px;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             min-height: 80vh;
             position: relative;
+            overflow: hidden;
         }
 
         header {
@@ -49,6 +49,7 @@
             font-size: 1.4em;
             font-weight: 500;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
         }
 
         .upload-section {
@@ -58,6 +59,7 @@
             flex-direction: column;
             align-items: center;
             gap: 8px;
+            flex-shrink: 0;
         }
 
         .upload-controls {
@@ -111,10 +113,13 @@
             text-align: center;
         }
 
+        /* ✅ Make chat scrollable independently */
         #chatInterface {
             display: flex;
             flex-direction: column;
             flex-grow: 1;
+            overflow: hidden;
+            position: relative;
         }
 
         .chat-container {
@@ -123,6 +128,7 @@
             overflow-y: auto;
             background-color: var(--background-light);
             border-top: 1px solid #ddd;
+            scroll-behavior: smooth;
         }
 
         .message {
@@ -155,6 +161,7 @@
             font-style: italic;
         }
 
+        /* ✅ Fix input area at the bottom */
         .input-area {
             display: flex;
             padding: 15px;
@@ -162,6 +169,9 @@
             border-top: 1px solid #ddd;
             flex-wrap: wrap;
             justify-content: center;
+            position: sticky;
+            bottom: 0;
+            z-index: 10;
         }
 
         #userInput {
@@ -217,7 +227,6 @@
             box-shadow: 0 0 10px rgba(234, 67, 53, 0.5);
         }
 
-        /* ✅ Updated Stop Voice Button (Initially Hidden) */
         #stopVoiceButton {
             background-color: #ff4757;
             color: white;
@@ -225,14 +234,13 @@
             width: 44px;
             padding: 10px 0;
             font-size: 1.2em;
-            display: none; /* Hidden by default */
+            display: none;
         }
 
         #stopVoiceButton:hover {
             background-color: #c82333;
         }
 
-        /* --- Full Page Loader --- */
         #full-page-loader {
             position: fixed;
             top: 0;
@@ -270,7 +278,15 @@
         @media (max-width: 600px) {
             header { font-size: 1.1em; padding: 10px; }
             .container { width: 100%; border-radius: 0; min-height: 100vh; }
-            .upload-controls button, .custom-file-upload { width: 90%; text-align: center; }
+
+            /* ✅ Make upload buttons bigger on mobile */
+            .upload-controls button, .custom-file-upload {
+                width: 100%;
+                font-size: 1.1em;
+                padding: 14px 0;
+                text-align: center;
+            }
+
             #userInput { width: 100%; margin: 5px 0; }
             #sendButton, #voiceButton, #stopVoiceButton { width: 45%; margin-top: 5px; }
             .chat-container { padding: 10px; }
@@ -326,7 +342,6 @@
         let recognition = null;
         const synth = window.speechSynthesis;
 
-        // --- Show file name immediately when selected ---
         document.getElementById('pdfFile').addEventListener('change', function () {
             const file = this.files[0];
             if (file) {
@@ -434,7 +449,6 @@
             }
         }
 
-        // --- Voice Input ---
         if ('webkitSpeechRecognition' in window) {
             recognition = new webkitSpeechRecognition();
             recognition.lang = 'en-US';

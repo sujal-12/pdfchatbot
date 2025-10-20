@@ -1,0 +1,173 @@
+{
+    "title": "Sujal Sarangdhar",
+    "summary": "Sujal Sarangdhar is an aspiring Software Developer with experience in Python, Django, HTML, CSS, and JavaScript. He has worked on full-stack applications, integrated ML models, and developed projects spanning cab booking systems, IoT-enabled tracking, and machine learning classification models. Sujal holds an MCA degree from K.K. Wagh Institute Of Engg. Education And Research and possesses certifications in AWS Cloud Practitioner and Core Java. He is proficient in various programming languages, tools, and databases, with a strong grasp of AI/ML concepts.",
+    "key_sections": [
+        {
+            "section_title": "Contact Information",
+            "content": {
+                "email": "drjsarang@gmail.com",
+                "phone": "(+91) 8669473784",
+                "linkedin": "https://www.linkedin.com/in/sujal-sarangdhar-a6722b193/",
+                "portfolio_url": "https://sujal-portfolio1.netlify.app/",
+                "github": "https://github.com/sujal-12"
+            }
+        },
+        {
+            "section_title": "TECHNICAL SKILLS",
+            "content": {
+                "programming_languages": [
+                    "Python",
+                    "HTML",
+                    "CSS",
+                    "JS",
+                    "Java Core (with OOPs concepts)"
+                ],
+                "tools_version_control": [
+                    "Visual Studio code",
+                    "Git",
+                    "Github"
+                ],
+                "technologies": [
+                    "Django",
+                    "Tensorflow",
+                    "Pytorch"
+                ],
+                "databases": [
+                    "MYSQL",
+                    "SQLite3",
+                    "MongoDB"
+                ],
+                "concepts": [
+                    "Artificial Intelligence",
+                    "Machine Learning",
+                    "Data Science",
+                    "Database Normalization",
+                    "API",
+                    "LLM's"
+                ]
+            }
+        },
+        {
+            "section_title": "EXPERIENCE",
+            "content": [
+                {
+                    "title": "Software Developer | Tega IT Solutions PVT. LTD.",
+                    "duration": "July 2023 - Current",
+                    "details": [
+                        "Collaboration: Worked on 30+ student projects, 1 product-based project, and 1 live project using Python, Django, and machine learning.",
+                        "Built and deployed full-stack applications with HTML, CSS, JavaScript, and Django.",
+                        "Integrated ML models and optimized backend performance."
+                    ]
+                }
+            ]
+        },
+        {
+            "section_title": "EDUCATION",
+            "content": [
+                {
+                    "degree": "MCA",
+                    "institution": "K.K. Wagh Institute Of Engg. Education And Research, Nashik.",
+                    "percentage": "79.43%",
+                    "completion_date": "July 2024"
+                },
+                {
+                    "degree": "BSC(Comp. Sci.)",
+                    "institution": "H.P.T Arts & R.Y.K Science College, Nashik.",
+                    "percentage": "86.73%",
+                    "completion_date": "October 2022"
+                },
+                {
+                    "degree": "HSC",
+                    "institution": "G.M.D Arts, B.W. Commerce And Science College, Sinnar, Nashik.",
+                    "percentage": "69.23%",
+                    "completion_date": "June 2019"
+                },
+                {
+                    "degree": "SSC",
+                    "institution": "B.N.Sarda Vidyalaya, Sinnar, Nashik.",
+                    "percentage": "85.80%",
+                    "completion_date": "March 2017"
+                }
+            ]
+        },
+        {
+            "section_title": "PROJECTS",
+            "content": [
+                {
+                    "title": "Vansat Cabs (Live Project)",
+                    "technologies": "Python, Django, API Integration, SQLite3, HTML, CSS, JS",
+                    "description": "Developed the backend of an online cab booking system using the Django framework. Handled RESTful API integration, implemented dynamic routing with map-based location services, and managed source/destination listings. Enabled real-time route creation and trip booking functionality using geolocation data."
+                },
+                {
+                    "title": "IoT-Enabled Employee Tracking Software (Product Based)",
+                    "technologies": "Python, Django, Sqlite3, HTML, CSS, JS",
+                    "description": "This is an industry-based employee attendance system using IoT for real-time tracking. The software provides live monitoring of staff in each department, ensuring accurate attendance and efficient workforce management."
+                },
+                {
+                    "title": "Superlative Classification Model",
+                    "technologies": "Python, Django, Machine Learning, HTML, CSS, JS, sqlite3.",
+                    "description": "This machine learning-based project consists of three modules: image, pose and csv. Developed using the Django Framework, it is designed to be user-friendly for individuals without prior knowledge of machine learning concepts."
+                }
+            ]
+        },
+        {
+            "section_title": "SOFT SKILLS",
+            "content": [
+                "Problem-solving and analytical skills.",
+                "Effective communication and team collaboration.",
+                "Adaptability and flexibility.",
+                "Attention to detail and quality assurance.",
+                "Time management and organization."
+            ]
+        },
+        {
+            "section_title": "CERTIFICATES",
+            "content": [
+                "AWS Cloud Practitioner Essential Certificate. (24/06/2022)",
+                "Core Java Certificate (ISO Certified). (20/05/2022)"
+            ]
+        },
+        {
+            "section_title": "SOCIAL ENGAGEMENTS",
+            "content": [
+                "Extra-Curricular: 1-month internship in Railways under Rail Kaushal Vikas Yojna Scheme.",
+                "Participation: In Solar Workshops & IOT Workshops at R.Y.K College."
+            ]
+        }
+    ],
+    "important_terms": [
+        "Python",
+        "HTML",
+        "CSS",
+        "JS",
+        "Java Core",
+        "OOPs concepts",
+        "Visual Studio code",
+        "Git",
+        "Github",
+        "Django",
+        "Tensorflow",
+        "Pytorch",
+        "MYSQL",
+        "SQLite3",
+        "MongoDB",
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Data Science",
+        "Database Normalization",
+        "API",
+        "LLM's",
+        "Full-stack applications",
+        "ML models",
+        "Backend performance",
+        "RESTful API",
+        "Map-based location services",
+        "Geolocation data",
+        "IoT",
+        "AWS Cloud Practitioner",
+        "ISO Certified",
+        "Rail Kaushal Vikas Yojna Scheme",
+        "Solar Workshops",
+        "IOT Workshops"
+    ]
+}
