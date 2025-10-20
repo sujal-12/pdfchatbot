@@ -26,7 +26,8 @@ if not os.path.exists(MEDIA_ROOT):
 # --- Helper function to clean response ---
 def clean_text_response(text: str) -> str:
     """
-    Cleans the model response to remove Markdown, code fences, and unwanted symbols.
+    Cleans the model response to remove Markdown, code fences, asterisks, and unwanted symbols.
+    Returns plain text.
     """
     if not text:
         return ""
@@ -37,10 +38,15 @@ def clean_text_response(text: str) -> str:
     # Remove */ or /* style comments
     text = text.replace("*/", "").replace("/*", "")
     
-    # Remove extra whitespace and newlines at start/end
+    # Remove Markdown bold/italic asterisks
+    text = re.sub(r'\*+', '', text)
+    
+    # Remove extra whitespace at start/end and multiple newlines
+    text = re.sub(r'\n\s*\n', '\n', text)  # collapse multiple empty lines
     text = text.strip()
     
     return text
+
 
 class GeminiPDFChatManager:
     """Manages the Gemini Client, file uploads, and chat sessions."""
